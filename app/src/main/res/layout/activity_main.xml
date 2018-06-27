@@ -4,20 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.photo.util.choosephoto.MainActivity"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.photo.util.choosephoto.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片剪切" />
 
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@mipmap/ic_launcher" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片不剪切" />
+
+    <ImageView
+        android:id="@+id/avatar_no_cut"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher" />
+
+
     <TextView
         android:id="@+id/tv_path"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
 
 </LinearLayout>

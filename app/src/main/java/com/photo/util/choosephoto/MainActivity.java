@@ -15,24 +15,37 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.photo.util.choosephotoutil.DialogPhotoForCutActivity;
+import com.photo.util.choosephotoutil.DialogPhotoForNoCutActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView avatar;
+    private ImageView avatar, avatar_no_cut;
     private TextView tv_path;
     private static final int TAKE_PHOTO = 1; // 拍照
+    int type = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         avatar = (ImageView) findViewById(R.id.avatar);
+        avatar_no_cut = (ImageView) findViewById(R.id.avatar_no_cut);
         tv_path = (TextView) findViewById(R.id.tv_path);
         verifyStoragePermissions(this);
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                type = 0;
                 Intent intent = new Intent(MainActivity.this, DialogPhotoForCutActivity.class);
+                intent.putExtra("filePath", getPath(MainActivity.this));
+                startActivityForResult(intent, TAKE_PHOTO);
+            }
+        });
+        avatar_no_cut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                type = 1;
+                Intent intent = new Intent(MainActivity.this, DialogPhotoForNoCutActivity.class);
                 intent.putExtra("filePath", getPath(MainActivity.this));
                 startActivityForResult(intent, TAKE_PHOTO);
             }
@@ -81,7 +94,12 @@ public class MainActivity extends AppCompatActivity {
 //                        if(mFile.exists()){
                     Bitmap bm = BitmapFactory.decodeFile(imageName);
                     // 将图片显示到ImageView中
-                    avatar.setImageBitmap(bm);
+                    if(type == 0){
+                        avatar.setImageBitmap(bm);
+                    } else {
+                        avatar_no_cut.setImageBitmap(bm);
+                    }
+
 //                            Toast.makeText(MainActivity.this,"图片存在",Toast.LENGTH_SHORT).show();
 //                        } else {
 //                            Toast.makeText(MainActivity.this,"图片不存在",Toast.LENGTH_SHORT).show();

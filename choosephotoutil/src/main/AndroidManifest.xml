@@ -15,6 +15,13 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme_dialog">
         </activity>
+        <activity
+            android:name=".DialogPhotoForNoCutActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|navigation"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme_dialog">
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.photo.util.choosephotoutil.fileprovider"
