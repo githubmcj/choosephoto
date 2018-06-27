@@ -167,7 +167,6 @@ public class DialogPhotoForCutActivity extends Activity{
 
                 case LOAD_PICTURE_KITKAK://4.4以上版本
                     startPhotoZoom(data.getData(), 600);
-
 //					Uri selectedImage = data.getData();
 //					String picturePath = ImageUtil.getPath(this, selectedImage);
 //					Intent resultIntent3 = new Intent();
