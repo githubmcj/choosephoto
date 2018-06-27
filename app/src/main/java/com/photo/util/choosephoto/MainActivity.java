@@ -90,25 +90,13 @@ public class MainActivity extends AppCompatActivity {
                 if (null != data) {
                     String imageName = data.getStringExtra("imageName");
                     tv_path.setText(imageName);
-//                        File mFile=new File(imageName);
-//                        if(mFile.exists()){
                     Bitmap bm = BitmapFactory.decodeFile(imageName);
                     // 将图片显示到ImageView中
-                    if(type == 0){
+                    if (type == 0) {
                         avatar.setImageBitmap(bm);
                     } else {
                         avatar_no_cut.setImageBitmap(bm);
                     }
-
-//                            Toast.makeText(MainActivity.this,"图片存在",Toast.LENGTH_SHORT).show();
-//                        } else {
-//                            Toast.makeText(MainActivity.this,"图片不存在",Toast.LENGTH_SHORT).show();
-//                        }
-
-//                        Uri uri = Uri.fromFile(new File(imageName));
-//                        avatar.setImageURI(uri);
-//                        Bitmap bitmap =BitmapFactory.decodeStream(getClass().getResourceAsStream(imageName));
-//                        avatar.setImageBitmap(bitmap);
                 }
                 break;
         }
