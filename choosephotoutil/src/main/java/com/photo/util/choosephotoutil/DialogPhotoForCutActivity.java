@@ -23,6 +23,12 @@ import android.widget.RelativeLayout;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+ /**
+  * 创建日期：2018/6/29 10:16
+  * 作者： Mao Chunjiang
+  * 文件名称：DialogPhotoForCutActivity
+  * 类说明：单张图片选择+图片剪切
+  */
 
 @SuppressLint("SdCardPath")
 public class DialogPhotoForCutActivity extends Activity{
