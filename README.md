@@ -36,7 +36,16 @@ ChoosePhoto
 ### 4、[历史版本]：
 ##### 2018.6.28<br>
     *完成图片选择功能，其中包括有无切图功能，版本v1.0.0
-    *引用方式：   implementation 'com.github.githubmcj:choosephoto:v1.0.0'
+    *引用方式：   
+    allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+    dependencies {
+	        implementation 'com.github.githubmcj:choosephoto:v1.0.0'
+	}
 
 
 ### 5、[联系方式]：
