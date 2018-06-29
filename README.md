@@ -5,9 +5,9 @@ ChoosePhoto
 
 
 ### 2、[项目结构简介]：
-##### example为demo,里面主要包括使用方式，如何调用；
-##### choosephotoutil为依赖Module，主要功能都在choosephotoutil文件夹里
-##### 其他文件默认提交，不做说明
+##### （1）example为demo,里面主要包括使用方式，如何调用；
+##### （2）choosephotoutil为依赖Module，主要功能都在choosephotoutil文件夹里
+##### （3）其他文件默认提交，不做说明
 
 
 ### 3、[测试DEMO]：
