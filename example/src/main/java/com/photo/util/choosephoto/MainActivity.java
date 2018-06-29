@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
 
 
+    /**
+     * 获取文件访问权限，6.0以上需要添加
+     * @param activity
+     */
     public void verifyStoragePermissions(Activity activity) {
         //获取读写SD卡权限
         try {
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         return path;
     }
 
-    @Override
+   @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) switch (requestCode) {
             case TAKE_PHOTO:
