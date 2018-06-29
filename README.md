@@ -6,7 +6,7 @@ ChoosePhoto
 
 ### 2、[项目结构简介]：
 ##### （1）example为demo,里面主要包括使用方式，如何调用；
-##### （2）choosephotoutil为依赖Module，主要功能都在choosephotoutil文件夹里
+##### （2）liabary为依赖Module，第三方库引用的文件都在liabary文件夹里
 ##### （3）其他文件默认提交，不做说明
 
 
