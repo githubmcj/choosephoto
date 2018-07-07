@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -89,7 +91,7 @@ public class DialogPhotoForNoCutActivity extends Activity {
             public void onClick(View view) {
                 imageName = getNowTime() + ".jpeg";
                 if (Build.VERSION.SDK_INT >= 24) {//判读版本是否在7.0以上
-                    Uri photoURI = FileProvider.getUriForFile(DialogPhotoForNoCutActivity.this, "com.photo.util.choosephotoutil.fileprovider", new File(filePath + "/photo/", imageName));
+                    Uri photoURI = FileProvider.getUriForFile(DialogPhotoForNoCutActivity.this, getHostAppId(getApplicationContext())+".fileprovider", new File(filePath + "/photo/", imageName));
                     //添加这一句表示对目标应用临时授权该Uri所代表的文件
                     intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -306,6 +308,17 @@ public class DialogPhotoForNoCutActivity extends Activity {
         }
         return result;
     }
-
+    private String getHostAppId(Context appContext) throws IllegalArgumentException {
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = appContext.getPackageManager().getApplicationInfo(appContext.getPackageName(), PackageManager.GET_META_DATA);
+            if(applicationInfo == null){
+                throw new IllegalArgumentException(" get application info = null, has no meta data! ");
+            }
+            return applicationInfo.metaData.getString("BFC_UPLOAD_HOST_APP_ID");
+        } catch (PackageManager.NameNotFoundException e) {
+            throw new IllegalArgumentException(" get application info error! ", e);
+        }
+    }
 
 }
